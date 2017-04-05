@@ -82,11 +82,11 @@ var s3ParamsToSign = map[string]bool{
 // setv2Handlers will setup v2 signature signing on the S3 driver
 func setv2Handlers(svc *s3.S3) {
 	svc.Handlers.Build.PushBack(func(r *request.Request) {
-		parsedURL, err := url.Parse(r.HTTPRequest.URL.String())
-		if err != nil {
-			log.Fatalf("Failed to parse URL: %v", err)
-		}
-		r.HTTPRequest.URL.Opaque = parsedURL.Path
+		//parsedURL, err := url.Parse(r.HTTPRequest.URL.String())
+		//if err != nil {
+		//	log.Fatalf("Failed to parse URL: %v", err)
+		//}
+		//r.HTTPRequest.URL.Opaque = parsedURL.Path
 	})
 
 	svc.Handlers.Sign.Clear()
